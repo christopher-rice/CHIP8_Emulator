@@ -36,34 +36,30 @@ bool System::init()
 // Loads the program into memory
 bool System::load(const char* filename)
 {
-	std::ifstream inputFile;
+	
+	std::ifstream inputFile;		      // Filestream for reading binary data
+	unsigned char byte;				      // Variable we'll be reading byte data into
+	int index = memory::instStartAddress; // Starting address for inputting instructions into memory
 
+	// Opens the input file in binary mode
 	inputFile.open(filename, std::ios::binary);
 
+	// Checks if file is opened correctly
 	if (!inputFile.is_open())
 	{
 		std::cout << "File failed to open" << std::endl;
 		return(false);
 	}
 
-	unsigned char byte;
-	unsigned char byteArray[478];
-	int i = 0;
-
+	// Reading in binary from the input program one byte at a time
 	while (inputFile.read(reinterpret_cast<char*>(&byte), sizeof(byte)))
 	{
-		byteArray[i++] = byte;
+		// Writing byte data into memory
+		memory[index++] = byte;
 	}
 
-	for (int i = 0; i < 478; i++)
-	{
-		std::cout << std::hex << std::setw(2) << std::setfill('0') << (int)byteArray[i] << " ";
-
-		if ((i + 1) % 16 == 0)
-		{
-			std::cout << std::endl;
-		}
-	}
+	// Dumps memory into output
+	memory.memdump();
 
 	return(true);
 }

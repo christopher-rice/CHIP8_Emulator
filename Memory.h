@@ -2,7 +2,11 @@
 #ifndef _MEMORY_H_
 #define _MEMORY_H_
 
-const unsigned short maxAddress = 4096;
+namespace memory
+{
+	const unsigned short instStartAddress = 512;
+	const unsigned short maxAddress = 4096;
+}
 
 // Names for each of the 16 registers
 enum regIndex { V0, V1, V2, V3, V4, V5, V6, V7, V8, V9, VA, VB, VC, VD, VE, VF };
@@ -13,9 +17,15 @@ class Memory
 		// Initializes all memory components for initial use
 		bool init();
 
+		// Prints out all data within memory
+		void memdump();
+
+		// Index operator overload
+		unsigned char& operator[](unsigned short index);
+
 	private:
 		// 4K of Memory
-		unsigned char mem[maxAddress];
+		unsigned char mem[memory::maxAddress];
 };
 
 // Initializes all memory components for initial use
@@ -27,6 +37,32 @@ bool Memory::init()
 	}
 
 	return(true);
+}
+
+// Prints out all data within memory
+void Memory::memdump()
+{
+	for (int i = 0; i < memory::maxAddress; i++)
+	{
+		std::cout << std::hex << std::setw(2) << std::setfill('0') << (int)mem[i] << " ";
+
+		if ((i + 1) % 16 == 0)
+		{
+			std::cout << std::endl;
+		}
+	}
+}
+
+// Index operator overload
+unsigned char& Memory::operator[](unsigned short index)
+{
+	if (index >= memory::maxAddress)
+	{
+		std::cout << "ERROR: Memory address out of bounds" << std::endl;
+		exit(0);
+	}
+
+	return(mem[index]);
 }
 
 #endif
