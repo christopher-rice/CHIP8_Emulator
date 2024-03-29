@@ -1,9 +1,10 @@
 #include <iostream>
-#include "CPU.h"
-#include "Memory.h"
+#include "System.h"
 
 int main()
 {
+	System mainSystem;
+
 	std::cout << "Hello World" << std::endl;
 	return(0);
 }
