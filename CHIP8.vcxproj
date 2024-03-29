@@ -132,7 +132,11 @@
   <ItemGroup>
     <ClInclude Include="CPU.h" />
     <ClInclude Include="Memory.h" />
+    <ClInclude Include="Screen.h" />
     <ClInclude Include="System.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TestRoms\test_opcode.ch8" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

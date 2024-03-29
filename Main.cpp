@@ -1,18 +1,40 @@
 #include <iostream>
 #include "System.h"
 
-class Screen
-{
-public:
-
-private:
-	bool pixels[64 * 32];
-};
+// The main CHIP-8 system for emulation
+System mainSystem;
 
 int main()
 {
-	System mainSystem;
+	// Setup
+	/*
+	 * This is where we want to setup any of our graphics
+	 * and sound subsystems
+	 */
 
-	std::cout << "Hello World" << std::endl;
+	// Initialize
+	/*
+	 * Initializes the system and loads the program into
+	 * memory
+	 */
+
+	bool initFlag = mainSystem.init();
+
+	if (initFlag)
+	{
+		std::cout << "INIT SUCCESS" << std::endl;
+	}
+	else
+	{
+		std::cout << "INIT FAILED" << std::endl;
+	}
+
+	// Run
+	/*
+	 * Actually runs the system
+	 */
+
+
+
 	return(0);
 }
