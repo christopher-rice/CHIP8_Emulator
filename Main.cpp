@@ -29,6 +29,8 @@ int main()
 		std::cout << "INIT FAILED" << std::endl;
 	}
 
+	bool loadFlag = mainSystem.load("TestRoms\\test_opcode.ch8");
+
 	// Run
 	/*
 	 * Actually runs the system
