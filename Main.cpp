@@ -40,7 +40,8 @@ int main()
 	 * Actually runs the system
 	 */
 
-
+	// Runs the system
+	mainSystem.run();
 
 	return(0);
 }

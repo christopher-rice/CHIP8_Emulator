@@ -42,5 +42,17 @@ bool System::load(const char* filename)
 // Starts the system's execution
 void System::run()
 {
+	// Add a cycles per second tracker here
 
+	// Continuously executes CPU cycles
+	while (true)
+	{
+		// Executes a single CPU cycle
+
+		// Update the screen if draw flag is set
+
+		// Stores key press state
+
+		std::cout << "Cycle executed" << std::endl;
+	}
 }
