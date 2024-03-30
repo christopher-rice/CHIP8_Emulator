@@ -18,6 +18,9 @@ class CPU
 		// Initializes all CPU components for first time use
 		bool init(Memory* memory);
 
+		// Executes a single CPU cycle
+		void executeCycle();
+
 	private:
 		// Memory within the system
 		Memory* memory;

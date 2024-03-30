@@ -44,10 +44,14 @@ void System::run()
 {
 	// Add a cycles per second tracker here
 
+	cpu.executeCycle();
+
 	// Continuously executes CPU cycles
+	/*
 	while (true)
 	{
 		// Executes a single CPU cycle
+		cpu.executeCycle();
 
 		// Update the screen if draw flag is set
 
@@ -55,4 +59,5 @@ void System::run()
 
 		std::cout << "Cycle executed" << std::endl;
 	}
+	*/
 }
