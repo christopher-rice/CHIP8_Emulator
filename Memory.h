@@ -2,6 +2,7 @@
 #ifndef _MEMORY_H_
 #define _MEMORY_H_
 
+// Namespace for Memory constants
 namespace memory
 {
 	const unsigned short instStartAddress = 512;

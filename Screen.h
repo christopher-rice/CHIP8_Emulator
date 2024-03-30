@@ -2,8 +2,11 @@
 #ifndef _SCREEN_H_
 #define _SCREEN_H_
 
-const unsigned width = 64;
-const unsigned height = 32;
+namespace screen
+{
+	const unsigned width = 64;
+	const unsigned height = 32;
+}
 
 class Screen
 {
@@ -12,7 +15,7 @@ class Screen
 		bool init();
 
 	private:
-		bool pixels[width * height];
+		bool pixels[screen::width * screen::height];
 };
 
 #endif;

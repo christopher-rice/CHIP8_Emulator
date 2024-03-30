@@ -5,7 +5,7 @@
 // Initializes the system and all components
 bool System::init()
 {
-	return(cpu.init() && memory.init() && screen.init());
+	return(cpu.init(&memory) && memory.init() && screen.init());
 }
 
 // Loads the program into memory
